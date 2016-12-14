@@ -1,6 +1,7 @@
 ![CF](https://i.imgur.com/7v5ASc8.png)  Lab 03: jQuery and events
 =======
 
+
 Work with the provided starter code to add structure and functionality a basic Blog web site.
 
 The code has some unfinished features. Your help is needed to complete it!
