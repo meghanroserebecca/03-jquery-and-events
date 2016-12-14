@@ -63,6 +63,9 @@ articleView.handleMainNav = function () {
       2. Fade in the single .tab-content section that is
         associated with the .tab element's data-content attribute.
     */
+    var content = $(this).attr('data-content');
+    $('.tab-content').hide();
+    $('#' + content).fadeIn(5000);
   });
   $('.main-nav .tab:first').click();
 };
@@ -80,5 +83,3 @@ articleView.setTeasers = function() {
 };
 
 // TODO: Invoke all of the above functions (I mean, methods!):
-
-console.dirxml($('article[data-category="placeholder-category"]')[0]);
