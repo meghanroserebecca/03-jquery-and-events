@@ -21,7 +21,7 @@ articleView.handleAuthorFilter = function() {
   var authorName = $(this).val();
   if (authorName) {
     $('article').hide();
-    $('article[data-author="' + authorName + '"]').fadeIn(5000);
+    $('article[data-author="' + authorName + '"]').fadeIn(3000);
       /* TODO: If the slect box changes to an option that has a value, we should:
           1. Hide all of the articles **hide()
           2. Fade in only the articles that match based on on the author **fadeIn()
@@ -42,7 +42,7 @@ articleView.handleCategoryFilter = function() {
     var category = ($('#category-filter').val());
     if (category) {
       $('article').hide();
-      $('article[data-category="' + category + '"]').fadeIn(5000);
+      $('article[data-category="' + category + '"]').fadeIn(3000);
     }
     else {
       $('article').not('template').show();
@@ -65,13 +65,20 @@ articleView.handleMainNav = function () {
     */
     var content = $(this).attr('data-content');
     $('.tab-content').hide();
-    $('#' + content).fadeIn(5000);
+    $('#' + content).fadeIn(3000);
   });
   $('.main-nav .tab:first').click();
 };
 
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide();
+  var readOn = $('a.read-on');
+  readOn.on('click', function(event) {
+    event.preventDefault();
+    $('.article-body *:nth-of-type(n+2)').show();
+    readOn.hide();
+
+  });
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
     1. Prevent the defaul actionof a link.
@@ -81,5 +88,11 @@ articleView.setTeasers = function() {
     // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
   */
 };
+
+articleView.populateFilters();
+articleView.handleAuthorFilter();
+articleView.handleCategoryFilter();
+articleView.handleMainNav();
+articleView.setTeasers();
 
 // TODO: Invoke all of the above functions (I mean, methods!):
