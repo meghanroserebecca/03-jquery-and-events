@@ -75,8 +75,8 @@ articleView.setTeasers = function() {
   var readOn = $('a.read-on');
   readOn.on('click', function(event) {
     event.preventDefault();
-    $('.article-body *:nth-of-type(n+2)').show();
-    readOn.hide();
+    $(this).parent().find('*').show();
+    $(this).hide();
 
   });
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
